@@ -1,0 +1,29 @@
+<h1> All the posts from the user <%= @influencer.user %> </h1>
+
+<h4> <%= link_to "back",  influencer_path%></h4>
+
+<table>
+	<tr>
+		<th>caption</th>
+		<th>noOfComments</th>
+		<th>likes</th>
+		<th>postedTime</th>
+
+		<th>location</th>
+		<th>ownerOfPost</th>
+		<th>isVideo</th>
+		<th>videoViews</th>
+	</tr>
+	<% @influencer.posts.each do |f| %>
+	<tr>
+		<th><%= f.caption %></th>
+		<th><%= f.noOfComments %></th>
+		<th><%= f.likes %></th>
+		<th><%= f.postedTime %></th>
+
+		<th><%= f.location %></th>
+		<th><%= f.ownerOfPost %></th>
+		<th><%= f.isVideo %></th>
+		<th><%= f.videoViews %></th>
+	</tr>
+	<% end %>

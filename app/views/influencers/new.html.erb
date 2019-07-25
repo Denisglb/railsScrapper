@@ -1,0 +1,12 @@
+<h1> Find out about an influencer someone </h1>
+
+<%= form_for @influencer do |f| %>
+	<p>
+		<%= f.label :user %> <br>
+		<%= f.text_field :user %>
+	</p>
+
+	<p>
+		<%= f.submit %>
+	</p>
+<% end %>

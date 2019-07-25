@@ -1,0 +1,26 @@
+<h1><center> Look at all these influencers! </center></h1>
+
+<table>
+	<tr>
+		<th>user</th>
+		<th>biography</th>
+		<th>followers</th>
+		<th>following</th>
+		<th>businessAcounnt</th>
+		<th>businessCategory</th>
+		<th>numberOfPosts</th>
+	</tr>
+	<% @influencer.each do |f| %>
+	<tr>
+		<th><%= f.user %></th>
+		<th><%= f.biography %></th>
+		<th><%= f.followers %></th>
+		<th><%= f.following %></th>
+		<th><%= f.businessAcounnt %></th>
+		<th><%= f.businessCategory %></th>
+		<th><%= f.numberOfPosts %></th>
+		<th><%= link_to 'Show', influencer_path(f) %> </th>
+	</tr>
+	<% end %>
+</table>
+

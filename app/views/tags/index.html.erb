@@ -1,0 +1,26 @@
+<h1> Influencers who have recently posted with <%= @tags.first.tag_name %> tag </h1>
+
+<h4>This tag has been used <%= @tags.first.popularity_of_tag %> times </h4>
+
+<table>
+	<tr>
+		<th>user</th>
+		<th>comment</th>
+		<th>comment_count</th>
+		<th>like_count</th>
+		<th>owner_id</th>
+		<th>date_added</th>
+		<th>accessibility_caption</th>
+	</tr>
+	<% Tag.all.each do |f| %>
+	<tr>
+		<th><%= f.user %></th>
+		<th><%= f.comment %></th>
+		<th><%= f.comment_count %></th>
+		<th><%= f.like_count %></th>
+		<th><%= f.owner_id %></th>
+		<th><%= f.date_added %></th>
+		<th><%= f.accessibility_caption %></th>
+	</tr>
+	<% end %>
+</table>
