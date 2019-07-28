@@ -1,12 +1,27 @@
-<h1> Find influencer by Hashtags </h1>
 
-<%= form_for @tags do |f| %>
-	<p>
-		<%= f.label :user %> <br>
-		<%= f.text_field :user %>
-	</p>
+<div class="header">
+	<div class="logo">IRM</div
+	><div class="title">Find influencer by Hashtags</div>
+</div>
+<div class="page">
+	<div class="menu">
+		<a href="/influencers">Influencers</a>
+		<a href="/tags">Tags</a>
+		<a href="/influencers/new">Add Influencer</a>
+		<a href="/tags/new" class="active">Add Tag</a>
+	</div>
+	<div class="content">
+		
+		<%= form_for @tags do |f| %>
+			<p>
+				<%= f.label :user %> <br>
+				<%= f.text_field :user %>
+			</p>
 
-	<p>
-		<%= f.submit %>
-	</p>
-<% end %>
+			<p>
+				<%= f.submit %>
+			</p>
+		<% end %>
+
+	</div>
+</div>

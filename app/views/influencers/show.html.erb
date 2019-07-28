@@ -1,29 +1,45 @@
-<h1> All the posts from the user <%= @influencer.user %> </h1>
 
-<h4> <%= link_to "back",  influencer_path%></h4>
+<div class="header">
+	<div class="logo">IRM</div
+	><div class="title">Posts by @<%= @influencer.user %></div>
+</div>
+<div class="page">
+	<div class="menu">
+		<a href="/influencers">Influencers</a>
+		<a href="/tags">Tags</a>
+		<a href="/influencers/new">Add Influencer</a>
+		<a href="/tags/new">Add Tag</a>
+	</div>
+	<div class="content">
+		
+		<table>
+			<tr>
+				<td>Caption</td>
+				<td>No Of Comments</td>
+				<td>Likes</td>
+				<td>Posted Time</td>
 
-<table>
-	<tr>
-		<th>caption</th>
-		<th>noOfComments</th>
-		<th>likes</th>
-		<th>postedTime</th>
+				<td>Location</td>
+				<td>Owner Of Post</td>
+				<td>Is Video</td>
+				<td>Video Views</td>
+			</tr>
+			<% @influencer.posts.each do |f| %>
+			<tr>
+				<td><%= f.caption %></td>
+				<td><%= f.noOfComments %></td>
+				<td><%= f.likes %></td>
+				<td><%= f.postedTime %></td>
 
-		<th>location</th>
-		<th>ownerOfPost</th>
-		<th>isVideo</th>
-		<th>videoViews</th>
-	</tr>
-	<% @influencer.posts.each do |f| %>
-	<tr>
-		<th><%= f.caption %></th>
-		<th><%= f.noOfComments %></th>
-		<th><%= f.likes %></th>
-		<th><%= f.postedTime %></th>
+				<td><%= f.location %></td>
+				<td><%= f.ownerOfPost %></td>
+				<td><%= f.isVideo %></td>
+				<td><%= f.videoViews %></td>
+			</tr>
+			<% end %>
+		</table>
 
-		<th><%= f.location %></th>
-		<th><%= f.ownerOfPost %></th>
-		<th><%= f.isVideo %></th>
-		<th><%= f.videoViews %></th>
-	</tr>
-	<% end %>
+	</div>
+</div>
+
+

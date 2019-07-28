@@ -1,12 +1,29 @@
-<h1> Find out about an influencer someone </h1>
 
-<%= form_for @influencer do |f| %>
-	<p>
-		<%= f.label :user %> <br>
-		<%= f.text_field :user %>
-	</p>
 
-	<p>
-		<%= f.submit %>
-	</p>
-<% end %>
+<div class="header">
+	<div class="logo">IRM</div
+	><div class="title">Add New Influencer</div>
+</div>
+<div class="page">
+	<div class="menu">
+		<a href="/influencers">Influencers</a>
+		<a href="/tags">Tags</a>
+		<a href="/influencers/new" class="active">Add Influencer</a>
+		<a href="/tags/new">Add Tag</a>
+	</div>
+	<div class="content">
+		
+		<%= form_for @influencer do |f| %>
+			<p>
+				<%= f.label :user %> <br>
+				<%= f.text_field :user %>
+			</p>
+
+			<p>
+				<%= f.submit %>
+			</p>
+		<% end %>
+
+	</div>
+</div>
+

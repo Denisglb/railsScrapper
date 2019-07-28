@@ -1,26 +1,40 @@
-<h1><center> Look at all these influencers! </center></h1>
 
-<table>
-	<tr>
-		<th>user</th>
-		<th>biography</th>
-		<th>followers</th>
-		<th>following</th>
-		<th>businessAcounnt</th>
-		<th>businessCategory</th>
-		<th>numberOfPosts</th>
-	</tr>
-	<% @influencer.each do |f| %>
-	<tr>
-		<th><%= f.user %></th>
-		<th><%= f.biography %></th>
-		<th><%= f.followers %></th>
-		<th><%= f.following %></th>
-		<th><%= f.businessAcounnt %></th>
-		<th><%= f.businessCategory %></th>
-		<th><%= f.numberOfPosts %></th>
-		<th><%= link_to 'Show', influencer_path(f) %> </th>
-	</tr>
-	<% end %>
-</table>
+<div class="header">
+	<div class="logo">IRM</div
+	><div class="title">Influencers</div>
+</div>
+<div class="page">
+	<div class="menu">
+		<a href="/influencers" class="active">Influencers</a>
+		<a href="/tags">Tags</a>
+		<a href="/influencers/new">Add Influencer</a>
+		<a href="/tags/new">Add Tag</a>
+	</div>
+	<div class="content">
+		
+		<table>
+			<tr>
+				<td>User</td>
+				<td>Biography</td>
+				<td>Followers</td>
+				<td>Following</td>
+				<td>Business Account</td>
+				<td>Business Category</td>
+				<td>Number Of Posts</td>
+			</tr>
+			<% @influencer.each do |f| %>
+			<tr>
+				<td>@<%= f.user %></td>
+				<td><%= f.biography %></td>
+				<td><%= f.followers %></td>
+				<td><%= f.following %></td>
+				<td><%= f.businessAcounnt=='f'?'No':'Yes' %></td>
+				<td><%= f.businessCategory %></td>
+				<td><%= f.numberOfPosts %></td>
+				<td><%= link_to 'Show', influencer_path(f) %> </td>
+			</tr>
+			<% end %>
+		</table>
 
+	</div>
+</div>

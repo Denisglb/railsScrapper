@@ -13,3 +13,109 @@
  *= require_tree .
  *= require_self
  */
+
+
+html,body{
+	margin:0px;
+	padding:0px;
+	font-family:'Work Sans', sans-serif;
+}
+.header, .page,
+.header > DIV,
+.page > DIV{
+	position:absolute;
+}
+.header{
+	top:0px;left:0px;
+	width:100%;height:50px;
+}
+.page{
+	top:50px;left:0px;
+	width:100%;bottom:0px;
+}
+.header > DIV,.page > DIV{
+	top:0px;height:100%;
+	box-sizing:border-box;
+}
+.header > DIV:first-child,
+.page > DIV:first-child{
+	left:0px;width:250px;
+	text-align:center;
+}
+.header > DIV:last-child,
+.page > DIV:last-child{
+	left:250px;right:0px;
+	padding-left:20px;
+}
+
+.header{
+	color:#FFF;
+}
+.header > DIV{
+	height:50px;
+	line-height:50px;
+}
+.header .logo{
+	background:#111;
+	font-weight:600;
+}
+.header .title{
+	background:#333;
+}
+
+.page .menu{
+	background:#EEE;
+}
+.page .menu a:link,
+.page .menu a:visited{
+	display:block;
+	text-decoration:none;
+	height:50px;
+	line-height:50px;
+	transition:all .3s ease;
+	color:#888;
+}
+.page .menu a:not(:last-child){
+	border-bottom:1px solid rgba(0,0,0,.1);
+}
+.page .menu a:hover,
+.page .menu a:active{
+	color:#000;
+	background:#CCC;
+}
+.page .menu a.active{
+	border-right:2px solid #000;
+	background:none !important;
+	cursor:default;
+	color:#333;
+	font-weight:600;
+}
+.page .menu:before{
+	content:'';
+	position:absolute;
+	top:0px;right:0px;
+	height:100%;
+	width:2px;
+	background:rgba(0,0,0,0.1);
+}
+
+.page > DIV{
+	padding-top:15px;
+	overflow:auto;
+}
+
+table tr td{
+	vertical-align:top;
+	padding:0px 10px;
+}
+table tr:first-child td{
+	white-space:nowrap;
+	padding-bottom:10px;
+	font-size:11px;
+	font-weight:600;
+	color:#888;
+	text-transform:uppercase;
+}
+table tr:not(:first-child) td{
+	padding-bottom:10px;
+}
