@@ -1,4 +1,3 @@
-
 <div class="header">
 	<div class="logo">IRM</div
 	><div class="title">Influencers</div>
@@ -28,6 +27,7 @@
 				<td><%= f.biography %></td>
 				<td><%= f.followers %></td>
 				<td><%= f.following %></td>
+				<th><%= f.followers.to_i / f.following.to_i %></th>
 				<td><%= f.businessAcounnt=='f'?'No':'Yes' %></td>
 				<td><%= f.businessCategory %></td>
 				<td><%= f.numberOfPosts %></td>
@@ -35,6 +35,5 @@
 			</tr>
 			<% end %>
 		</table>
-
 	</div>
 </div>
