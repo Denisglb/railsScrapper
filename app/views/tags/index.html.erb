@@ -22,9 +22,9 @@
 				<td>Date Added</td>
 				<td>Accessibility Caption</td>
 			</tr>
-			<% Tag.all.each do |f| %>
+			<% @tags.all.each do |f| %>
 			<tr>
-				<td><%= f.user %></td>
+				<td><%= link_to f.user, influencers_path(:influencer =>{:user => f.user}) , :method => :post %></td>
 				<td><%= f.comment %></td>
 				<td><%= f.comment_count %></td>
 				<td><%= f.like_count %></td>
