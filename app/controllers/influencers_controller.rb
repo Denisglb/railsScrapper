@@ -13,7 +13,7 @@ class InfluencersController < ApplicationController
 	def index
 		@influencer = Influencer.all
 	end
-
+	
 	def show
 		@influencer = Influencer.find(params[:id])
 	end

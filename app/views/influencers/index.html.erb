@@ -10,7 +10,6 @@
 		<a href="/tags/new">Add Tag</a>
 	</div>
 	<div class="content">
-		
 		<table>
 			<tr>
 				<td>User</td>
@@ -18,6 +17,7 @@
 				<td>Followers</td>
 				<td>Following</td>
 				<td> Follower ratio </td>
+				<td> Engagement Rate </td>
 				<td>Number Of Posts</td>
 				<td>Business Account</td>
 				<td>Business Category</td>
@@ -28,7 +28,10 @@
 				<td><%= f.biography %></td>
 				<td><%= f.followers %></td>
 				<td><%= f.following %></td>
-				<th><%= f.following.to_i == 0 ? 1 : f.followers.to_i / f.following.to_i %></th>
+				<td><%= f.following.to_i == 0 ? 1 : f.followers.to_i / f.following.to_i %></td>
+
+				<td><%= ((f.posts.average(:likes).to_f / f.followers.to_f) * 100).round(2)%> %</td>
+
 				<td><%= f.numberOfPosts %></td>
 				<td><%= f.businessAcounnt== 'f' ? 'No':'Yes' %></td>
 				<td><%= f.businessCategory %></td>

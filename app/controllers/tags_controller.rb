@@ -5,19 +5,27 @@ class TagsController < ApplicationController
 	end
 
 	def create
-		@tags = Tag.new(tags_params)
-		scrapedata(tags_params)
-		render "index"
-	end
-
-	def index
-		@tags = Tag.all
+		if Tag.exists?(tag_name: tags_params[:user])
+			@tags = Tag.find_by(tag_name: tags_params[:user])
+			redirect_to @tags
+		else
+			@tags = Tag.new(tags_params)
+			scrapedata(tags_params)
+			render "index"
+			# redirect_to @tags
+		end
 	end
 
 	def show
+		@tags = Tag.find(tags_params[:id])
+		# @tags = Tag.find_by(tag_name: tags_params[:user])
 	end
 
+	def index
+		@tags = Tag.all.order("created_at DESC")
+	end
 
+	# private
 	def tags_params
 		params.require(:tag).permit(:user)
 	end
@@ -49,13 +57,11 @@ class TagsController < ApplicationController
 		@tag.save
 
 		tags_info.each_with_index do |tags, i|
-
-			if tags_info[i]["node"]["edge_media_to_caption"]["edges"][0]["node"]["text"].empty? 
+			if tags_info[i]["node"]["edge_media_to_caption"]["edges"][0]["node"].empty? 
 				comment= "there is no comment here"
 			else
 				comment = tags_info[i]["node"]["edge_media_to_caption"]["edges"][0]["node"]["text"]
 			end
-			
 			comment_count = tags_info[i]["node"]["edge_media_to_comment"]["count"].to_s
 			like_count = tags_info[i]["node"]["edge_liked_by"]["count"].to_s
 			owner_id = tags_info[i]["node"]["owner"]["id"].to_s

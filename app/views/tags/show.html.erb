@@ -1,4 +1,3 @@
-
 <div class="header">
 	<div class="logo">IRM</div>
 	<div class="title">Influencers recently posted with times)</div>
@@ -11,7 +10,7 @@
 		<a href="/tags/new">Add Tag</a>
 	</div>
 	<div class="content">
-
+		
 		<table>
 			<tr>
 				<td>User</td>
@@ -22,9 +21,9 @@
 				<td>Date Added</td>
 				<td>Accessibility Caption</td>
 			</tr>
-			<% Tag.all.each do |f| %>
+			<% @tags.each do |f| %>
 			<tr>
-				<td><%= link_to f.user, influencers_path(:influencer =>{:user => f.user.to_s}) , :method => :post %></td>
+				<td><%= link_to f.user, influencers_path(:influencer =>{:user => f.user}) , :method => :post %></td>
 				<td><%= f.comment %></td>
 				<td><%= f.comment_count %></td>
 				<td><%= f.like_count %></td>
